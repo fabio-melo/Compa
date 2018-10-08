@@ -10,10 +10,13 @@ class Dicionario:
 
   # Funções de edits1 e edits2 de correção, adaptadas do artigo do Peter Norvig, http://norvig.com/spell-correct.html
   def check(self, word): return True if word in self.dicionario else False
+
   def correction(self, word): 
     print(f"possiveis candidatos: {self.candidates(word)}")
     return max(self.candidates(word))
+
   def candidates(self,word): return (self.known([word]) or self.known(self.edits1(word)) or self.known(self.edits2(word)) or [word])
+
   def known(self, words): return set(w for w in words if w in self.dicionario)
 
   def edits1(self, word):
@@ -42,6 +45,11 @@ class Dicionario:
     if checked:
       for s in checked:
         print(f'grafia incorreta em {s}. você quis dizer {self.candidates(s)} ?')
+
+  def tokenize(self,word):
+    return word.rstrip().split()
+
+
 
 if __name__ == '__main__':
   d = Dicionario()

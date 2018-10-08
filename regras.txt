@@ -1,0 +1,17 @@
+Sentença  SN SV
+Sentença  SV
+SN  pronome
+SN  substantivo
+SN  artigo substantivo
+SV  verbo
+SV  verbo SN
+SV  verbo SN SP
+SP  preposição SN
+
+PARTS_OF_SPEECH = [
+    "noun", "verb", "adjective", "adverb", "determiner",
+    "article", "preposition", "conjunction", "proper noun",
+    "letter", "character", "phrase", "proverb", "idiom",
+    "symbol", "syllable", "numeral", "initialism", "interjection",
+    "definitions", "pronoun",
+]

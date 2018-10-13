@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, flash
 import subprocess
-from spelling import Dicionario
+from spelling.simplechecker import Dicionario
 
 app = Flask(__name__)
 app.secret_key = 'development key'

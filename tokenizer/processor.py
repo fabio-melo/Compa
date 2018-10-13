@@ -3,7 +3,7 @@ from tokenizer.processors.list import ListTagger
 
 class Processor:
   def __init__(self):
-    self.lt = [ListTagger('tokenizer/wordlists/verbosdefinidos.csv'),]
+    self.lt = [ListTagger('/wordlists/verbosdefinidos.csv'),]
     self.wt = WikiTagger()
 
   def run(self, tokens):

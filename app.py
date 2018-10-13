@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, flash
 import subprocess
 from spelling.simplechecker import Dicionario
+from tokenizer.tokenize import Tokenizer
 
 app = Flask(__name__)
 app.secret_key = 'development key'
 
-d = Dicionario()
+di = Dicionario()
+tk = Tokenizer()
 
 @app.route('/')
 def start_server():
@@ -14,13 +16,16 @@ def start_server():
 
 @app.route('/check', methods=['POST'])
 def check():
-  res = d.check_phrase(request.form['Text1'])
+  text = tk.run(request.form['Text1'])
+  flash(text)
+  """
+  res = di.check_phrase(request.form['Text1'])
   if not res:
     flash("Não há erros ortográficos no texto escrito")
   else:
     for r in res:
       flash(f"A Palavra <b>{ r.replace('','  ') }</b> não está no dicionário, você quis dizer <b>{ d.correction(r).replace('','    ') }</b>?")
-
+  """
   return render_template('index.html')
 
 

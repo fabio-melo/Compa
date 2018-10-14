@@ -5,7 +5,11 @@ from tokenizer.processors.list import ListTagger
 
 class Processor:
   def __init__(self):
-    self.lt = [ListTagger('wordlists/verbosdefinidos.csv'),]
+    lists = [
+      'wordlists/manual.csv',
+      'wordlists/verbosdefinidos.csv',
+    ]
+    self.lt = [ListTagger(x) for x in lists]
     self.wt = WikiTagger()
 
   def process(self, tokens):

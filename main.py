@@ -1,10 +1,14 @@
 from tokenizer.extractor import Extractor
 from tokenizer.processor import Processor
+"""
+if __name__ == '__main__':
+  pr = Processor()
+  ex = Extractor()
 
-pr = Processor()
-ex = Extractor()
+  phrase = Extractor().extract("ele amava ela")
 
-phrase = Extractor().extract("os amores amam")
+  x = pr.process(phrase)
+  print(x)
+"""
 
-x = pr.run(phrase)
-print(x)
+from misc.geradores import verbos_reg

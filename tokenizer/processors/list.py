@@ -10,7 +10,11 @@ class OffDict:
   def _load(self, file):
     with open(file, 'r') as f:
       lista, offlinedict = (list(csv.reader(f))), {}
-      for x in lista: offlinedict[x[0]] = [x[1],x[2],x[3]]
+      for x in lista: 
+        if x[0] in offlinedict.keys():
+          offlinedict[x[0]].append([[x[1]],x[2],x[3]])
+        else:
+          offlinedict[x[0]] = [[x[1],x[2],x[3]]]
       return offlinedict
 
 class ListTagger:

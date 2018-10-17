@@ -7,7 +7,7 @@ class Processor:
   def __init__(self):
     lists = [
       'wordlists/manual.csv',
-      'wordlists/verbosdefinidos.csv',
+      'wordlists/verbosregulares.csv',
     ]
     self.lt = [ListTagger(x) for x in lists]
     self.wt = WikiTagger()

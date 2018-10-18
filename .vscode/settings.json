@@ -1,0 +1,7 @@
+{
+  "files.exclude": {
+    "__error": "Not found",
+    "tokenizer\\**/__pycache__": true,
+    "tokenizer\\**/__pycache__.*": true
+  }
+}

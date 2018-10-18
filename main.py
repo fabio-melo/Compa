@@ -1,7 +1,7 @@
 import sys, os
 from tokenizer.extractor import Extractor
 from tokenizer.processor import Processor
-from parsing.sintagma import Grammar
+from parsing.descent import DescentParser
 #import misc.geradores.verbos_reg
 
 if __name__ == '__main__':
@@ -12,5 +12,4 @@ if __name__ == '__main__':
 
   for y in phrase:
     print(y)
-
-  #Grammar(phrase)._start()
+  DescentParser(phrase)._start()

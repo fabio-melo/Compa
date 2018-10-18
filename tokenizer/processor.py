@@ -6,7 +6,7 @@ from tokenizer.processors.list import ListTagger
 class Processor:
   def __init__(self):
     lists = [
-      #'wordlists/manual.csv',
+      'wordlists/manual.csv',
       'wordlists/verbosregulares.csv',
     ]
     self.lt = [ListTagger(x) for x in lists]

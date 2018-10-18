@@ -10,10 +10,10 @@ class WikiTagger:
   def fetch(self, tokens):
     
     for x in tokens:
-      if x.pos == 'TEMP' or isinstance(x.pos,list):
+      if x.pos == 'TEMP': #or isinstance(x.pos,list):
         try:
-          parts = x.pos if isinstance(x.pos, list) else [] #persistencia
-          
+          #parts = x.pos if isinstance(x.pos, list) else [] #persistencia
+          parts = []
           p = self.wp.fetch(x.symbol)
           for k in p:
             for y in k['definitions']:
@@ -28,7 +28,7 @@ class WikiTagger:
           if parts:
             x.pos = parts
           else:
-            x.pos = ['desconhecido']
+            x.pos = [['proper noun']]
           #x.pos = wp.fetch(x.symbol)[0]['definitions'][0]['partOfSpeech']
         except Exception as e:
           print(e)

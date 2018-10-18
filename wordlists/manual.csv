@@ -7,8 +7,8 @@ da, preposition, FEMI, singular,
 do, preposition, MASC, singular,
 dos, preposition, MASC, plural,
 das, preposition, FEMI, plural,
-,PRONOME,,,
-eu, pronoun, INDF, singular,
-tu, pronoun, INDF, singular,
-ele, pronoun, MASC, singular,
-ela, pronoun, FEMI, singular,
+dele,  preposition, MASC, singular
+dela, preposition, FEMI, singular
+quando, conjunction, INDF, 
+e, preposition, INDF,
+um, pronoun, MASC, singular

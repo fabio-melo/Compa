@@ -15,3 +15,12 @@ PARTS_OF_SPEECH = [
     "symbol", "syllable", "numeral", "initialism", "interjection",
     "definitions", "pronoun",
 ]
+
+aquela competente professora explica pacientemente variados conceitos"
+
+eu não gosto de maça
+
+S -> pronoum nome
+S -> nome
+
+SV1 -> adverb | verbo

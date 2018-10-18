@@ -40,7 +40,8 @@ class Extractor:
       if not char: break
       elif re.match(r'[a-zA-Z\u00C0-\u00FFx]',char): self._word()
       elif re.match(r'[0-9]',char): self._number()
-      else: self._consume(); self._commit('OTHER')
+      elif re.match(r'[\.\,]',char): self._punctuation()
+      else: self._other()
 
   def _word(self):
     while True:
@@ -59,6 +60,14 @@ class Extractor:
         self._consume()
       else: break
     self._commit('NUMBER')
+
+  def _punctuation(self):
+    self._consume()
+    self._commit('PUNCTUATION')
+
+  def _other(self):
+    self._consume()
+    self._commit('OTHER')
 
   def _commit(self,code):
     if self._c_symbol:

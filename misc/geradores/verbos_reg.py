@@ -16,12 +16,14 @@ def build_list(vari):
   for x in vari:
     for y in primeira_pessoa_singular:
       new = [x + y]
+      new.append('verb')
       new.append('INDF')
       new.append('singular')
       new.append('primeira')
       final.append(new)
       for y in segunda_pessoa_singular:
         new = [x + y]
+        new.append('verb')
         new.append('INDF')
         new.append('singular')
         new.append('segunda')
@@ -29,6 +31,7 @@ def build_list(vari):
 
     for y in terceira_pessoa_singular:
       new = [x + y]
+      new.append('verb')
       new.append('INDF')
       new.append('singular')
       new.append('terceira')
@@ -36,12 +39,14 @@ def build_list(vari):
 
     for y in primeira_pessoa_plural:
       new = [x + y]
+      new.append('verb')
       new.append('INDF')
       new.append('plural')
       new.append('primeira')
       final.append(new)
       for y in segunda_pessoa_plural:
         new = [x + y]
+        new.append('verb')
         new.append('INDF')
         new.append('plural')
         new.append('segunda')
@@ -49,6 +54,7 @@ def build_list(vari):
 
     for y in terceira_pessoa_plural:
       new = [x + y]
+      new.append('verb')
       new.append('INDF')
       new.append('plural')
       new.append('terceira')

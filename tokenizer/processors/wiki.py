@@ -10,9 +10,10 @@ class WikiTagger:
   def fetch(self, tokens):
     
     for x in tokens:
-      if x.pos == 'TEMP':
+      if x.pos == 'TEMP' or isinstance(x.pos,list):
         try:
-          parts = []
+          parts = x.pos if isinstance(x.pos, list) else [] #persistencia
+          
           p = self.wp.fetch(x.symbol)
           for k in p:
             for y in k['definitions']:

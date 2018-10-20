@@ -2,10 +2,10 @@
 import re, pickle
 from collections import Counter
 
-class Dicionario:
+class SpellChecker:
 
   def __init__(self, trained=True):
-    """ Constrói o dicionário """
+    """ Constrói o spellchecker """
     self.dicionario = []
     self.qtd = None
     if trained: 
@@ -67,12 +67,28 @@ class Dicionario:
       for s in checked:
         print(f'grafia incorreta em {s}. você quis dizer {self.correction(s)} ?')
 
-  def tokenize(self,word):
-    return word.rstrip().split()
+
+  def from_tokenizer(self, tokens):
+    bad_words = []
+
+    for x in tokens:
+      """lê dos tokens e informa dos erros ao usuario"""
+      tok = []
+      if not self.check(x.symbol):
+        tok.append(x.symbol)
+        corrected = self.correction(x.symbol)
+        if x.symbol == corrected:
+          tok.append(False)
+        else:
+          tok.append(self.correction(x.symbol))
+        bad_words.append(tok)
+    return bad_words
+
+  def autocorrect(self, tokens):
+    """corrige in place e retorna a lista de tokens corrigidos"""
+    for x in tokens:
+      if not self.check(x.symbol):
+        x.symbol = self.correction(x.symbol)
+    return tokens
 
 
-
-if __name__ == '__main__':
-  d = Dicionario()
-  
-  print(d.suggest_correction("veio, eu num gosto de pokemon"))

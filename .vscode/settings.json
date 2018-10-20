@@ -7,6 +7,8 @@
     ".ipynb_checkpoints": true,
     "spelling\\**/__pycache__": true,
     "spelling\\**/__pycache__.*": true,
-    "spelling\\__pycache__": true
+    "spelling\\__pycache__": true,
+    "**/__pycache__": true,
+    "**/__pycache__.*": true
   }
 }

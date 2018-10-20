@@ -3,6 +3,7 @@
 import re
 from tokenizer.structure import Token
 
+
 class Extractor:
   def __init__(self):
     #public

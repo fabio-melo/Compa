@@ -4,12 +4,14 @@ from tokenizer.processors.wiki import WikiTagger
 from tokenizer.processors.list import ListTagger
 
 class Processor:
-  def __init__(self):
-    lists = [
-      'wordlists/manual.csv',
-      'wordlists/verbosregulares.csv',
-    ]
-    self.lt = [ListTagger(x) for x in lists]
+  def __init__(self, lists=False, online=True):
+    """ recebe uma lista de caminhos de arquivos .csv """
+
+    if lists:
+      self.lt = [ListTagger(x) for x in lists]
+    else:
+      self.lt = False
+
     self.wt = WikiTagger()
 
   def process(self, tokens):

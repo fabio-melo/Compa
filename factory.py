@@ -2,10 +2,15 @@ from tokenizer.extractor import Extractor
 from tokenizer.processor import Processor
 from spelling.checker import SpellChecker
 
+WORDLISTS = [  
+  #'wordlists/manual.csv',
+  'wordlists/verbosregulares.csv',]
+
+
 class CompaFactory():
   def __init__(self):
     self.extractor = Extractor()
-    self.processor = Processor()
+    self.processor = Processor(lists=WORDLISTS, online=True)
     self.spellcheck = SpellChecker()
     
   def execute(self, word):

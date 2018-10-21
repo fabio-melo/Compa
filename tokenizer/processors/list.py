@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import csv
+from tokenizer.structure import PartOfSpeech
 
 class OffDict:
   def __init__(self, file): 
@@ -12,9 +13,11 @@ class OffDict:
       lista, offlinedict = (list(csv.reader(f))), {}
       for x in lista: 
         if x[0] in offlinedict.keys():
-          offlinedict[x[0]].append([[x[1]],x[2],x[3]])
+          coisa = PartOfSpeech(x[1],x[2], x[3])
+          offlinedict[x[0]].append(coisa)
         else:
-          offlinedict[x[0]] = [[x[1],x[2],x[3]]]
+          coisa = PartOfSpeech(x[1],x[2], x[3])
+          offlinedict[x[0]] = [coisa,]
       return offlinedict
 
 class ListTagger:

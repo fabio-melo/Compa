@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from wiktionaryparser import WiktionaryParser
+from tokenizer.structure import PartOfSpeech
 
 class WikiTagger:
   
@@ -24,11 +25,12 @@ class WikiTagger:
                 gender = 'FEMI'
               else:
                 gender = 'INDF'
-              parts.append([y['partOfSpeech'], gender])
+              coiso = PartOfSpeech(y['partOfSpeech'],gender, "TEMP")
+              parts.append(coiso)
           if parts:
             x.pos = parts
           else:
-            x.pos = [['proper noun']]
+            x.pos = PartOfSpeech('proper noun','INDF','TEMP')
           #x.pos = wp.fetch(x.symbol)[0]['definitions'][0]['partOfSpeech']
         except Exception as e:
           print(e)

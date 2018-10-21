@@ -3,7 +3,7 @@ from tokenizer.processor import Processor
 from spelling.checker import SpellChecker
 
 WORDLISTS = [  
-  #'wordlists/manual.csv',
+  'wordlists/manual.csv',
   'wordlists/verbosregulares.csv',]
 
 

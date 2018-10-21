@@ -2,7 +2,7 @@ class ElementoTextual:
   def __init__(self, sintagma, termos):
     self.sintagma = sintagma
     self.termos = termos
-    self.tempo = ''
+    self.grau = ''
     self.genero = ''
     self.pessoa = ''
 

@@ -1,22 +1,50 @@
 from parsing.elements import ElementoTextual
 
-class ReducedSintagma(object):
-  def __init__(self, sintagma, genero, grau, pessoa):
-    self.sintagma = sintagma
-    self.genero = genero
-    self.grau = grau
-    self.pessoa = pessoa
-  def __repr__(self):
-    return f"{self.sintagma} ({self.genero}/{self.grau}/{self.pessoa})"
+def check_unique(elemento): 
+  if elemento:
+    return all(x==elemento[0] for x in elemento)
+  else:
+    return True
 
-
-
-class ShiftReduce:
+class PostProcess:
   def __init__(self, stack):
     self.stack = stack
+    self.errors = []
 
-  def article_noun(self, sintagma):
-    # recebe um sintagma nominal
-    #'article','adjective','pronoun','noun','proper noun'
-    if len(sintagma) == 1:
-      a ok
+
+  def sintagma_nominal(self, sintagma):
+    errors = []
+    stack_grau, stack_genero, stack_pessoa = [],[],[]
+    for s in sintagma.termos:
+      m_grau, m_genero, m_pessoa = [],[],[]
+      for y in s.pos:
+        if y.grau != "DESC": m_grau.append(y.grau)
+        if y.genero != "DESC": m_genero.append(y.genero)
+        if y.pessoa not in ["INDF","DESC"]: m_pessoa.append(y.pessoa)
+      if m_grau and check_unique(m_grau): stack_grau.append(m_grau[0])
+      #else: stack_grau.append('INDF')
+      if m_pessoa and check_unique(m_pessoa): stack_pessoa.append(m_pessoa[0])
+      #else: stack_grau.append('INDF')
+      if m_genero and check_unique(m_genero): stack_genero.append(m_genero[0])
+      #else: stack_grau.append('INDF')
+
+    #REDUZINDO
+    if check_unique(stack_grau): sintagma.grau = stack_grau[0]
+    else: 
+      sintagma.grau = 'INDF'
+      errors.append(["Grau", sintagma.termos])
+
+    if check_unique(stack_pessoa): sintagma.pessoa = stack_pessoa[0]
+    else: 
+      sintagma.pessoa = 'INDF'
+      errors.append(["Pessoa", sintagma.termos])
+
+    if check_unique(stack_genero): sintagma.genero = stack_genero[0]
+    else: 
+      test = [x for x in stack_genero if x != "INDF"]
+      sintagma.genero = 'INDF'
+      if test and not check_unique(test):
+        errors.append(["Genero", sintagma.termos])
+    print(f"{stack_genero} \n {stack_grau} \n {stack_pessoa}")
+    print(errors)
+    return sintagma

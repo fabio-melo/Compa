@@ -4,6 +4,10 @@ class AmbiguityTagger:
   def fetch(self, tokens):
     tokens = self.single_out('verb', tokens)
     tokens = self.single_out('adverb', tokens)
+    tokens = self.single_out('pronoun', tokens) 
+    tokens = self.single_out('noun', tokens)
+    tokens = self.single_out('adjective', tokens)
+
     return tokens
 
 

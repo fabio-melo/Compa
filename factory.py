@@ -6,7 +6,9 @@ from parsing.stackparser import StackParser
 
 WORDLISTS = [  
   'wordlists/manual.csv',
-  'wordlists/verbosregulares.csv',]
+  'wordlists/verbosregulares.csv',
+  #'wordlists/verbos.csv'
+  ]
 
 
 class CompaFactory():
@@ -33,6 +35,7 @@ class CompaFactory():
 
     stack = StackParser(tagged).stack
 
-    print(stack)
+    for x in stack:
+      print(x)
 
     return errors_spelling, repetitions, stack

@@ -24,13 +24,13 @@ class WikiTagger:
               elif 'f' in y['text'][0].split():
                 gender = 'FEMI'
               else:
-                gender = 'INDF'
+                gender = 'DESC'
               coiso = PartOfSpeech(y['partOfSpeech'],gender, "TEMP")
               parts.append(coiso)
           if parts:
             x.pos = parts
           else:
-            x.pos = [PartOfSpeech('proper noun','INDF','TEMP'),]
+            x.pos = [PartOfSpeech('proper noun','DESC','TEMP'),]
           #x.pos = wp.fetch(x.symbol)[0]['definitions'][0]['partOfSpeech']
         except Exception as e:
           print(e)

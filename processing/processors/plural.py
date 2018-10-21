@@ -27,7 +27,7 @@ class PluralTagger:
     for x in tokens:
       if isinstance(x.pos,list):
         for y in x.pos:
-          if y.genero == 'INDF':
+          if y.genero == 'DESC':
             try:
               if y.grau == 'plural':
                 if x.symbol[-2] == 'a':
@@ -47,8 +47,9 @@ class PluralTagger:
     for x in tokens:
       if isinstance(x.pos,list):
         for y in x.pos:
-          if y.tipo in ['noun','proper noun']:
-            y.pessoa = 'terceira'
+          if y.pessoa == 'DESC':
+            if y.tipo in ['noun','proper noun']:
+              y.pessoa = 'terceira'
     return tokens
 
 

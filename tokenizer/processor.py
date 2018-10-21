@@ -2,9 +2,11 @@
 
 from tokenizer.processors.wiki import WikiTagger
 from tokenizer.processors.list import ListTagger
+from tokenizer.processors.plural import PluralTagger
+
 
 class Processor:
-  def __init__(self, lists=False, online=True):
+  def __init__(self, lists=False):
     """ recebe uma lista de caminhos de arquivos .csv """
 
     if lists:
@@ -13,6 +15,7 @@ class Processor:
       self.lt = False
 
     self.wt = WikiTagger()
+    self.pt = PluralTagger()
 
   def process(self, tokens):
     #processamento offline
@@ -22,4 +25,7 @@ class Processor:
 
     #processamento online
     tokens = self.wt.fetch(tokens)
+    #plurais
+    tokens = self.pt.fetch(tokens)
+
     return tokens

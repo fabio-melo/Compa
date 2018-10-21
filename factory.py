@@ -10,7 +10,7 @@ WORDLISTS = [
 class CompaFactory():
   def __init__(self):
     self.extractor = Extractor()
-    self.processor = Processor(lists=WORDLISTS, online=True)
+    self.processor = Processor(lists=WORDLISTS)
     self.spellcheck = SpellChecker()
     
   def execute(self, word):

@@ -30,7 +30,7 @@ class WikiTagger:
           if parts:
             x.pos = parts
           else:
-            x.pos = PartOfSpeech('proper noun','INDF','TEMP')
+            x.pos = [PartOfSpeech('proper noun','INDF','TEMP'),]
           #x.pos = wp.fetch(x.symbol)[0]['definitions'][0]['partOfSpeech']
         except Exception as e:
           print(e)

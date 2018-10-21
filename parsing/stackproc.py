@@ -7,7 +7,18 @@ def check_unique(elemento):
   else:
     return True
 
-class PostProcess:
+class StackProcess:
+
+  def reduce_elements(self, stack):
+    errorlist = []
+    for element in stack:
+      if element.sintagma == 'NOMINAL':
+        errors, element = self.sintagma_nominal(element)
+        if errors: errorlist.append(*errors)
+      elif element.sintagma == 'VERBAL':
+        errors, element = self.sintagma_verbal(element)
+        if errors: errorlist.append(*errors)
+    return errorlist, stack
 
   def sintagma_nominal(self, sintagma):
     errors = []

@@ -1,21 +1,15 @@
 # -*- coding: utf-8 -*-
-from parsing.postparse import PostProcess
+from parsing.stackproc import StackProcess
 from parsing.stackparse import StackParser
 
 class ReduceParser(StackParser):
   def __init__(self, phrase):
     super().__init__(phrase)
-    self.post = PostProcess()
-    self.errors = []
-    self.reduce_elements()
-    print(self.stack)
+    
+    self.errors, self.sintagmas = StackProcess().reduce_elements(self.stack)
+    self.print_sintagmas()
     print(self.errors)
 
-  def reduce_elements(self):
-    for element in self.stack:
-      if element.sintagma == 'NOMINAL':
-        errors, element = self.post.sintagma_nominal(element)
-        if errors: self.errors.append(*errors)
-      elif element.sintagma == 'VERBAL':
-        errors, element = self.post.sintagma_verbal(element)
-        if errors: self.errors.append(*errors)
+  def print_sintagmas(self):
+    for x in self.sintagmas:
+      print(f'{x.sintagma} {x.grau} {x.genero} {x.pessoa} ', end='\n')

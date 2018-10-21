@@ -19,6 +19,8 @@ class StackParser(CommonParser):
     SINTAGMA_VERBAL = ['verb','adverb']
     CONJUNCAO = ['conjunction']
     PREPOSICAO = ['preposition']
+    PONTUACAO = ['PUNCTUATION']
+
 
     while self._read():
       
@@ -33,7 +35,10 @@ class StackParser(CommonParser):
 
       elif self._check(PREPOSICAO):
         stack.append(self.sintagma('PREPOSICAO', PREPOSICAO,max_len=1))
-        
+      
+      elif self._check(PONTUACAO):
+        stack.append(ElementoTextual('PONTUACAO',[self._next(),]))
+
       else:
         self._next()
 

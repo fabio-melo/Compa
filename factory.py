@@ -3,7 +3,7 @@ from tokenizer.extractor import Extractor
 from processing.processor import Processor
 from spelling.checker import SpellChecker
 from spelling.repetition import RepetitionChecker
-from parsing.stackparse import StackParser
+from parsing.reducer import ReduceParser
 
 WORDLISTS = [  
   'wordlists/manual.csv',
@@ -33,10 +33,7 @@ class CompaFactory():
     tagged = self.processor.process(extracted)
     # PARSING
 
+    sintagmas = ReduceParser(tagged).sintagmas
 
-    stack = StackParser(tagged).stack
 
-    for x in stack:
-      print(x)
-
-    return errors_spelling, repetitions, stack, tagged
+    return errors_spelling, repetitions, sintagmas

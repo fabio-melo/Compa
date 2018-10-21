@@ -5,12 +5,11 @@ compa = CompaFactory()
 
 #x = ['o cara','a mulher','o mulher', 'a rapaz', 'eu', 'tu', 'você', 'o secretária', 'a secretário']
 
-x = ['nós estudamos alegremente']
+x = ['cara, eu não acho que seja possível']
 
 for y in x:
-  _,_, stack, tagged = compa.execute(y)
-  ReduceParser(tagged)
-
+  _,_, sintagmas = compa.execute(y)
+  
 #import sys, os, webbrowser
 
   #DescentParser(phrase).export_to_file('gram.dot') 

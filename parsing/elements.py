@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class ElementoTextual:
   def __init__(self, sintagma, termos):
     self.sintagma = sintagma

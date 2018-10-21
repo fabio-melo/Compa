@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 class RepetitionChecker:
   def repetition(self, tokens):

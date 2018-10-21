@@ -9,7 +9,7 @@ class OffDict:
   def __str__(self): return f"{self.wordlist}"
 
   def _load(self, file):
-    with open(file, 'r') as f:
+    with open(file, 'r',encoding='utf-8') as f:
       lista, offlinedict = (list(csv.reader(f))), {}
       for x in lista: 
         if x[0] in offlinedict.keys():
@@ -17,6 +17,7 @@ class OffDict:
           try:
             coisa.pessoa = x[4]
           except:
+            print("ERROOO COISA")
             coisa.pessoa = "DESC"
           offlinedict[x[0]].append(coisa)
         else:
@@ -25,6 +26,8 @@ class OffDict:
             coisa.pessoa = x[4]
           except:
             coisa.pessoa = "DESC"
+            print(x)
+            print("ERROOO COISA")
           offlinedict[x[0]] = [coisa,]
       return offlinedict
 

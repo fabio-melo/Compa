@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from tokenizer.structure import PartOfSpeech
 
 class PluralTagger:

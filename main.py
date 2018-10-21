@@ -1,19 +1,15 @@
 from factory import CompaFactory
-from parsing.stackparser import StackParser
-
-from parsing.postprocess import PostProcess
+from parsing.reducer import ReduceParser
 
 compa = CompaFactory()
 
 #x = ['o cara','a mulher','o mulher', 'a rapaz', 'eu', 'tu', 'você', 'o secretária', 'a secretário']
 
-x = ['os muleque','os muleques']
+x = ['nós estudamos alegremente']
 
 for y in x:
-  _,_, stack = compa.execute(y)
-  print(y)
-  d = PostProcess(stack)
-  d.sintagma_nominal(stack[0])
+  _,_, stack, tagged = compa.execute(y)
+  ReduceParser(tagged)
 
 #import sys, os, webbrowser
 

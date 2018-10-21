@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 from tokenizer.extractor import Extractor
 from processing.processor import Processor
 from spelling.checker import SpellChecker
 from spelling.repetition import RepetitionChecker
-from parsing.stackparser import StackParser
+from parsing.stackparse import StackParser
 
 WORDLISTS = [  
   'wordlists/manual.csv',
@@ -38,4 +39,4 @@ class CompaFactory():
     for x in stack:
       print(x)
 
-    return errors_spelling, repetitions, stack
+    return errors_spelling, repetitions, stack, tagged

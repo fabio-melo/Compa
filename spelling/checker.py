@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Carrega as Palavras no Dicionario
 import re, pickle
 from collections import Counter

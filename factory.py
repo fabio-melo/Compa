@@ -1,5 +1,4 @@
 from tokenizer.extractor import Extractor
-from tokenizer.splitter import Splitter
 from processing.processor import Processor
 from spelling.checker import SpellChecker
 from spelling.repetition import RepetitionChecker
@@ -13,7 +12,6 @@ WORDLISTS = [
 class CompaFactory():
   def __init__(self):
     self.extractor = Extractor()
-    self.splitter = Splitter()
     self.processor = Processor(lists=WORDLISTS)
     self.spellcheck = SpellChecker()
     self.repetition = RepetitionChecker()
@@ -34,9 +32,7 @@ class CompaFactory():
 
 
     stack = StackParser(tagged).stack
-    print(tagged)
-    print("REPETI")
-    print(repetitions)
 
+    print(stack)
 
     return errors_spelling, repetitions, stack

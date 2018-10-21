@@ -6,6 +6,7 @@ class PluralTagger:
     tokens = self.singular_plural(tokens)
     tokens = self.masc_femi(tokens)
     tokens = self.fix_unprocessed(tokens)
+    tokens = self.pessoa(tokens)
     return tokens
     
   def singular_plural(self, tokens):
@@ -41,6 +42,15 @@ class PluralTagger:
             except:
               y.genero = 'INDF'
     return tokens
+
+  def pessoa(self, tokens):
+    for x in tokens:
+      if isinstance(x.pos,list):
+        for y in x.pos:
+          if y.tipo in ['noun','proper noun']:
+            y.pessoa = 'terceira'
+    return tokens
+
 
 
   def fix_unprocessed(self, tokens):

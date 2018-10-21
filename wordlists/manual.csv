@@ -1,11 +1,11 @@
 ,PREPOSIÇÕES,,,
-o,pronoun,MASC,singular,
-a,pronoun,FEMI,singular,
+o,pronoun,MASC,singular,terceira
+a,pronoun,FEMI,singular,terceira
 a,preposition,FEMI,singular,
 ao,preposition,MASC,singular,
 aos,preposition,MASC,singular,
-os,pronoun,MASC,plural,
-as,pronoun,FEMI,plural,
+os,pronoun,MASC,plural,terceira
+as,pronoun,FEMI,plural,terceira
 da,preposition,FEMI,singular,
 do,preposition,MASC,singular,
 dos,preposition,MASC,plural,
@@ -17,7 +17,10 @@ delas,preposition,FEMI,plural
 quando,conjunction,INDF,
 e,conjunction,INDF,
 não,conjunction,INDF,
-um,pronoun,MASC,singular,
+um,pronoun,MASC,singular,terceira
+uma,pronoun,FEMI,singular,terceira
+uns,pronoun,MASC,plural,terceira
+umas,pronoun,FEMI,singular,terceira
 ante,preposition,FEMI,singular,
 após,preposition,INDF,INDF,
 até,preposition,INDF,INDF,

@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, flash
 import subprocess
-from spelling.simplechecker import Dicionario
-from tokenizer.tokenize import Tokenizer
+#from spelling.simplechecker import Dicionario
+#from tokenizer.tokenize import Tokenizer
 
 app = Flask(__name__)
 app.secret_key = 'development key'

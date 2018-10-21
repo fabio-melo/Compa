@@ -8,7 +8,7 @@ import sys
 class StackParser(CommonParser):
   def __init__(self, phrase):
     super().__init__(phrase)
-    self._stack = self._build()
+    self.stack = self._build()
 
 
   def _build(self):
@@ -21,6 +21,7 @@ class StackParser(CommonParser):
     PREPOSICAO = ['preposition']
 
     while self._read():
+      
       if self._check(SINTAGMA_NOMINAL): 
         stack.append(self.sintagma('NOMINAL', SINTAGMA_NOMINAL,max_len=3))
 

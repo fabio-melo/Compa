@@ -12,9 +12,9 @@ class Token:
 
 
   def __str__(self): 
-    return f"{self.symbol} {self.pos}"
+    return f"({self.id_}) {self.symbol} {self.pos}"
   def __repr__(self): 
-    return f"{self.symbol} {self.pos}"
+    return f"({self.id_}) {self.symbol} {self.pos}"
 
 
 class PartOfSpeech:
@@ -27,7 +27,7 @@ class PartOfSpeech:
 
 
   def __str__(self): 
-    return f"{self.tipo} {self.genero} {self.grau} {self.pessoa}"
+    return f"{self.tipo}/{self.genero}/{self.grau}/{self.pessoa}"
   def __repr__(self): 
-    return f"{self.tipo} {self.genero} {self.grau} {self.pessoa}"
+    return f"{self.tipo}/{self.genero}/{self.grau}/{self.pessoa}"
 

@@ -1,3 +1,4 @@
+
 class AmbiguityTagger:
 
   def fetch(self, tokens):
@@ -8,14 +9,15 @@ class AmbiguityTagger:
 
   def single_out(self, type, tokens):
     for x in tokens:
-      temp = []
-      verbo = False
-      if len(x.pos) > 1:
-        for y in x.pos:
-          if y.tipo == type:
-            verbo = True
-            temp = y
-        if verbo:
-          x.pos = [temp,]
+      if isinstance(x.pos,list):
+        temp = []
+        verbo = False
+        if len(x.pos) > 1:
+          for y in x.pos:
+            if y.tipo == type:
+              verbo = True
+              temp = y
+          if verbo:
+            x.pos = [temp,]
 
     return tokens

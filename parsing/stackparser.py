@@ -1,50 +1,57 @@
 # -*- coding: utf-8 -*-
-
-from collections import deque
+from parsing.common import CommonParser
 
 import sys
 
+class ElementoTextual:
+  def __init__(self, sintagma, termos):
+    self.sintagma = sintagma
+    self.termos = termos
+    self.tempo_verbal = ''
+    self.pessoa_verbal = ''
 
-class StackParser:
+  def __repr__(self):
+    return f'{self.sintagma} {self.termos}'
 
+class StackParser(CommonParser):
   def __init__(self, phrase):
-    self._tokens = deque(phrase)
+    super().__init__(phrase)
     self._stack = []
 
-  def _next(self):
-    return self._tokens.popleft() if self._tokens else False
-
-  def _read(self):
-    return self._tokens[0] if self._tokens else False
-
-  def _error(self, alert_msg):
-    ERRORMSG = '[Syntax] ERROR: Line ' + alert_msg
-    print(ERRORMSG)
-
-
-  def _pos(self):
-    if self._read():
-      pos = self._read().pos
-      pos_list = []
-      for x in pos: pos_list.append(x[0])
-      return pos_list
-    else:
-      return False
-
-  def _check(self,lista):
-    if self._pos():
-      for x in self._pos():
-        if x in lista:
-          return True
-      return False
-    else:
-      return False
 
   def build(self):
+    
+    stack = []
+    
+    SINTAGMA_NOMINAL = ['article','adjective','pronoun','noun']
+    SINTAGMA_VERBAL = ['verb','adverb']
+    CONJUNCAO = ['conjunction']
+    PREPOSICAO = ['preposition']
+
     while self._read():
-      if self._check(['article','adjective','pronoun','noun']):
-        self._stack.append(self._next())
+      if self._check(SINTAGMA_NOMINAL): 
+        stack.append(self.sintagma('NOMINAL', SINTAGMA_NOMINAL,max_len=3))
+
+      elif self._check(SINTAGMA_VERBAL):
+        stack.append(self.sintagma('VERBAL', SINTAGMA_VERBAL, max_len=3))
+
+      elif self._check(CONJUNCAO):
+        stack.append(self.sintagma('CONJUNCAO', CONJUNCAO,max_len=1))
+
+      elif self._check(PREPOSICAO):
+        stack.append(self.sintagma('PREPOSICAO', PREPOSICAO,max_len=1))
+        
       else:
-        self._stack.append("STOPPER")
         self._next()
-    print(self._stack)
+
+    print(stack)
+
+
+  def sintagma(self, name, partsofspeech, max_len=3):
+    termos, temp_len = [], 0
+
+    while self._check(partsofspeech) and temp_len <= max_len:
+      termos.append(self._next())
+      temp_len += 1
+    
+    return ElementoTextual(name, termos)

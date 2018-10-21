@@ -1,29 +1,21 @@
 # -*- coding: utf-8 -*-
 from parsing.common import CommonParser
+from parsing.elements import ElementoTextual
 
 import sys
 
-class ElementoTextual:
-  def __init__(self, sintagma, termos):
-    self.sintagma = sintagma
-    self.termos = termos
-    self.tempo_verbal = ''
-    self.pessoa_verbal = ''
-
-  def __repr__(self):
-    return f'{self.sintagma} {self.termos}'
 
 class StackParser(CommonParser):
   def __init__(self, phrase):
     super().__init__(phrase)
-    self._stack = []
+    self._stack = self._build()
 
 
-  def build(self):
+  def _build(self):
     
     stack = []
     
-    SINTAGMA_NOMINAL = ['article','adjective','pronoun','noun']
+    SINTAGMA_NOMINAL = ['article','adjective','pronoun','noun','proper noun']
     SINTAGMA_VERBAL = ['verb','adverb']
     CONJUNCAO = ['conjunction']
     PREPOSICAO = ['preposition']
@@ -44,7 +36,7 @@ class StackParser(CommonParser):
       else:
         self._next()
 
-    print(stack)
+    return stack
 
 
   def sintagma(self, name, partsofspeech, max_len=3):

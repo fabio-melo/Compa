@@ -1,36 +1,47 @@
 ,PREPOSIÇÕES,,,
-o, pronoun, MASC, singular,
-a, pronoun, FEMI, singular,
-a, preposition, FEMI, singular,
-ao, preposition, MASC, singular,
-aos, preposition, MASC, singular,
-os, pronoun, MASC, plural,
-as, pronoun, FEMI, plural,
-da, preposition, FEMI, singular,
-do, preposition, MASC, singular,
-dos, preposition, MASC, plural,
-das, preposition, FEMI, plural,
-dele,  preposition, MASC, singular
-dela, preposition, FEMI, singular
-deles,  preposition, MASC, plural
-delas, preposition, FEMI, plural
-quando, conjunction, INDF, 
-e, conjunction, INDF,
-não, conjunction, INDF,
-um, pronoun, MASC, singular,
-ante, preposition, FEMI, singular,
-após, preposition, INDF, INDF,
-até, preposition, INDF, INDF,
-com, preposition, INDF, INDF,
-contra, preposition, INDF, INDF,
-de, preposition, INDF, INDF,
-desde, preposition, INDF, INDF,
-em, preposition, INDF, INDF,
-entre, preposition, INDF, INDF,
-para, preposition, INDF, INDF,
-por, preposition, INDF, INDF,
-perante, preposition, INDF, INDF,
-sem, preposition, INDF, INDF,
-sob, preposition, INDF, INDF,
-sobre, preposition, INDF, INDF,
-trás,preposition, INDF, INDF,
+o,pronoun,MASC,singular,
+a,pronoun,FEMI,singular,
+a,preposition,FEMI,singular,
+ao,preposition,MASC,singular,
+aos,preposition,MASC,singular,
+os,pronoun,MASC,plural,
+as,pronoun,FEMI,plural,
+da,preposition,FEMI,singular,
+do,preposition,MASC,singular,
+dos,preposition,MASC,plural,
+das,preposition,FEMI,plural,
+dele,preposition,MASC,singular
+dela,preposition,FEMI,singular
+deles,preposition,MASC,plural
+delas,preposition,FEMI,plural
+quando,conjunction,INDF,
+e,conjunction,INDF,
+não,conjunction,INDF,
+um,pronoun,MASC,singular,
+ante,preposition,FEMI,singular,
+após,preposition,INDF,INDF,
+até,preposition,INDF,INDF,
+com,preposition,INDF,INDF,
+contra,preposition,INDF,INDF,
+de,preposition,INDF,INDF,
+desde,preposition,INDF,INDF,
+em,preposition,INDF,INDF,
+entre,preposition,INDF,INDF,
+para,preposition,INDF,INDF,
+por,preposition,INDF,INDF,
+perante,preposition,INDF,INDF,
+sem,preposition,INDF,INDF,
+sob,preposition,INDF,INDF,
+sobre,preposition,INDF,INDF,
+trás,preposition,INDF,INDF,
+eu,pronoun,INDF,singular,primeira
+tu,pronoun,INDF,singular,segunda
+ele,pronoun,MASC,singular,terceira
+ela,pronoun,FEMI,singular,terceira
+você,pronoun,INDF,singular,terceira
+nós,pronoun,INDF,plural,primeira
+vós,pronoun,INDF,plural,segunda
+eles,pronoun,MASC,plural,terceira
+elas,pronoun,FEMI,plural,terceira
+vocês,pronoun,INDF,plural,terceira
+mas, conjunction, INDF, INDF, INDF

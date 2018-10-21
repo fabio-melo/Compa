@@ -1,6 +1,9 @@
 from tokenizer.extractor import Extractor
-from tokenizer.processor import Processor
+from tokenizer.splitter import Splitter
+from processing.processor import Processor
 from spelling.checker import SpellChecker
+from parsing.repetition import RepetitionParser
+from parsing.stackparser import StackParser
 
 WORDLISTS = [  
   'wordlists/manual.csv',
@@ -10,6 +13,7 @@ WORDLISTS = [
 class CompaFactory():
   def __init__(self):
     self.extractor = Extractor()
+    self.splitter = Splitter()
     self.processor = Processor(lists=WORDLISTS)
     self.spellcheck = SpellChecker()
     
@@ -22,5 +26,14 @@ class CompaFactory():
     extracted = self.spellcheck.autocorrect(extracted)
     # Processa a lista de tokens e adiciona as tags de parte-de-fala
     tagged = self.processor.process(extracted)
+    # Verifica a pontuação e separa a frase
+    #phrases = self.splitter.split(tagged)
+    # PARSING
+    
+    repetitions = RepetitionParser(tagged).errors
+    stack = StackParser(tagged)._tokens
+    
+    print(repetitions)
+
 
     return errors_spelling, tagged

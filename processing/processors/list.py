@@ -14,9 +14,17 @@ class OffDict:
       for x in lista: 
         if x[0] in offlinedict.keys():
           coisa = PartOfSpeech(x[1],x[2], x[3])
+          try:
+            coisa.pessoa = x[4]
+          except:
+            coisa.pessoa = "DESC"
           offlinedict[x[0]].append(coisa)
         else:
           coisa = PartOfSpeech(x[1],x[2], x[3])
+          try:
+            coisa.pessoa = x[4]
+          except:
+            coisa.pessoa = "DESC"
           offlinedict[x[0]] = [coisa,]
       return offlinedict
 

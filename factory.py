@@ -8,7 +8,7 @@ from parsing.reducer import ReduceParser
 WORDLISTS = [  
   'wordlists/manual.csv',
   'wordlists/verbosregulares.csv',
-  #'wordlists/verbos.csv'
+  'wordlists/verbos.csv'
   ]
 
 
@@ -33,9 +33,10 @@ class CompaFactory():
     tagged = self.processor.process(extracted)
     
     # Parser Sintático
-
-    semantic_errors = ReduceParser(tagged).get_errors()
+    parsed = ReduceParser(tagged)
+    semantic_errors = parsed.get_errors()
+    reduced = parsed.sintagmas
 
     errors = spelling_errors + repetitions + semantic_errors
 
-    return errors
+    return spelling_errors, semantic_errors, repetitions, reduced, tagged, extracted

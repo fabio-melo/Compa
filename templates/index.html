@@ -72,7 +72,7 @@ body {
                      {% if voice %}
  
             <script>
-                responsiveVoice.speak(" {{voice}} ", "Brazilian Portuguese Female", {rate: 0.9})
+                responsiveVoice.speak(" {{voice}} ", "Brazilian Portuguese Female", {rate: 0.8})
             </script>
             {% endif %}
 
@@ -82,7 +82,8 @@ body {
                 
               </div>
               <div class="card-footer">
-                  <input onclick='responsiveVoice.speak("{{voice}}", "Brazilian Portuguese Female", {rate: 0.9});' type='button' class= 'btn btn-primary float-right' value='Ouvir' />
+                  <input onclick='responsiveVoice.speak("{{voice}}", "Brazilian Portuguese Female", {rate: 0.9});' type='button' class= 'btn btn-primary float-right' value='Ouvir' />  
+                  <input onclick='responsiveVoice.speak("{{voice}}", "Brazilian Portuguese Female", {rate: 0.5});' type='button' class= 'btn btn-link float-right' value='Ouvir Devagar' />
               </div>
             </div>
               {% endif %}

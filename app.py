@@ -28,9 +28,11 @@ def errors_to_spoken_string(spelling, repetitions, semantic):
   voice, html = [], []
   for x in spelling:
     print(x.problema)
-    voice.append(f"Grafia Incorreta na Palavra { x.problema }, você quis dizer { x.correcao }")
+    a = " ".join(x.problema)
+    b = " ".join(x.correcao)
+    voice.append(f"Grafia Incorreta na Palavra { a }, você quis dizer { b }?")
 
-    html.append(f"Grafia incorreta na palavra <b>{x.problema}</b>, você quis dizer <b>{x.correcao}</b>")
+    html.append(f"Grafia incorreta na palavra <b>{x.problema}</b>, você quis dizer <b>{x.correcao}</b>?")
 
   for x in repetitions:
     voice.append(f"Repetição encontrada na palavra {x.problema}")

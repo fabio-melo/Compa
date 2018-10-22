@@ -35,6 +35,7 @@ def errors_to_spoken_string(spelling, repetitions, semantic):
     html.append(f"Grafia incorreta na palavra <b>{x.problema}</b>, você quis dizer <b>{x.correcao}</b>?")
 
   for x in repetitions:
+    print(repetitions)
     voice.append(f"Repetição encontrada na palavra {x.problema}")
     html.append(f"Repetição encontrada na palavra <b>{x.problema}</b>")
 

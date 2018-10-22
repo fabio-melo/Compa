@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from tokenizer.errors import ErrorDetails
 
 class RepetitionChecker:
   def repetition(self, tokens):
@@ -15,7 +16,7 @@ class RepetitionChecker:
       actual = tokens[x].symbol
 
       if actual == previous:
-        errors.append(tokens[x])
+        errors.append(ErrorDetails('REPETE',tokens[x].symbol,None))
         ids.append(tokens[x].id_)
       previous = actual
       x += 1

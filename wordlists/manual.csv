@@ -50,3 +50,6 @@ mas,conjunction,INDF,INDF,DESC
 cara,noun,INDF,singular,terceira
 caras,noun,INDF,plural,terceira
 que,preposition,INDF,INDF
+irá,verb,INDF,singular,terceira
+estou,verb,INDF,singular,primeira
+nosso,pronoun,INDF,singular,terceira

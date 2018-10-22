@@ -5,6 +5,7 @@ eu gosti de abicaxi
 
 REPETIÇÃO
 eu estou estou estudandi
+eu olho
 
 
 VERBO
@@ -16,10 +17,13 @@ cara, eu acho que nós gostamos de pipoci com manteiga
 
 ARTIGO
 
+o maravilhoso professor gostou
+
+
 o saborosa manteiga
 
 o moça
-
+	
 os rapaz
 
 meu amigo, eu ach que os rapaz entendo que nós gosta de futibol

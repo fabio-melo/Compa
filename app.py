@@ -66,8 +66,9 @@ def errors_to_spoken_string(spelling, repetitions, semantic):
     elif x.tipo == 'SV_PESSOA':
       voice.append(f"Erro de concordância de Pessoa no sintagma verbal {palavra}.")
       html.append(f"Erro de concordância de <b>pessoa</b> no sintagma verbal <b>{palavra}</b>.")
-    voice = ".".join(voice)
-    print(voice)
+  
+  voice = ".".join(voice)
+  print(voice)
   return voice, html
 
 

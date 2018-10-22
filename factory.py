@@ -8,7 +8,7 @@ from parsing.reducer import ReduceParser
 WORDLISTS = [  
   'wordlists/manual.csv',
   'wordlists/verbosregulares.csv',
-  'wordlists/verbos.csv'
+  #'wordlists/verbos.csv'
   ]
 
 

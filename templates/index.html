@@ -62,7 +62,7 @@ body {
                 <div class="d-flex">
   
                   <div class="flex-grow-1">
-                    <h5><a href="#">Erros Encontrados <small class="text-muted"></small></a></h5>
+                    <h5><a href="#">Erros Encontrados </a> <small>({{ errors.__len__() }})</small> </h5>
                    
                     {% for s in errors %}
                     <p>
@@ -71,7 +71,6 @@ body {
                     
                      {% if voice %}
  
-                     <input onclick='responsiveVoice.speak("{{voice}}", "Brazilian Portuguese Female", {rate: 0.9});' type='button' class= 'btn btn-primary float-right' value='Ouvir' />
             <script>
                 responsiveVoice.speak(" {{voice}} ", "Brazilian Portuguese Female", {rate: 0.9})
             </script>
@@ -80,6 +79,10 @@ body {
                     </p>
                   </div>
                 </div>
+                
+              </div>
+              <div class="card-footer">
+                  <input onclick='responsiveVoice.speak("{{voice}}", "Brazilian Portuguese Female", {rate: 0.9});' type='button' class= 'btn btn-primary float-right' value='Ouvir' />
               </div>
             </div>
               {% endif %}
@@ -104,13 +107,12 @@ body {
         {% endfor %}
       </div>
       <div class="card-footer">
-        <a href="#">Find more</a>
       </div>
     </div>
 
     {% endif %}
 
-    {% if tagged %}
+    {% if tagged_ %}
 
     <div class="card shadow mb-3">
       <div class="card-body">

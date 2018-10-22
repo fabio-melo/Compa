@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from parsing.elements import ElementoTextual
+from tokenizer.errors import ErrorDetails
 
 def check_unique(elemento): 
   if elemento:
@@ -40,22 +41,22 @@ class StackProcess:
     if stack_grau and check_unique(stack_grau): sintagma.grau = stack_grau[0]
     else: 
       sintagma.grau = 'INDF'
-      errors.append(["Grau", sintagma.termos])
+      errors.append(ErrorDetails("SN_GRAU", sintagma.termos, None))
 
     if stack_pessoa and check_unique(stack_pessoa): sintagma.pessoa = stack_pessoa[0]
     else: 
       sintagma.pessoa = 'INDF'
-      errors.append(["Pessoa", sintagma.termos])
+      errors.append(ErrorDetails("SN_PESSOA", sintagma.termos, None))
 
     if stack_genero and check_unique(stack_genero): sintagma.genero = stack_genero[0]
     else: 
       test = [x for x in stack_genero if x != "INDF"]
       sintagma.genero = 'INDF'
       if test and not check_unique(test):
-        errors.append(["Genero", sintagma.termos])
+        errors.append(ErrorDetails("SN_GENERO", sintagma.termos, None))
     #print(f"{stack_genero} \n {stack_grau} \n {stack_pessoa}")
     #print(errors)
-    return errors,sintagma
+    return errors, sintagma
 
   def sintagma_verbal(self, sintagma):
     errors = []
@@ -76,12 +77,12 @@ class StackProcess:
     if stack_grau and check_unique(stack_grau): sintagma.grau = stack_grau[0]
     else: 
       sintagma.grau = 'INDF'
-      errors.append(["Grau", sintagma.termos])
+      errors.append(ErrorDetails("SV_GRAU", sintagma.termos, None))
 
     if stack_pessoa and check_unique(stack_pessoa): sintagma.pessoa = stack_pessoa[0]
     else: 
       sintagma.pessoa = 'INDF'
-      errors.append(["Pessoa", sintagma.termos])
+      errors.append(ErrorDetails("SV_PESSOA", sintagma.termos, None))
     
     #print(f"VERBO {stack_grau} \n {stack_pessoa}")
     return errors, sintagma

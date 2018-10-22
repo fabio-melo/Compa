@@ -1,13 +1,11 @@
 from flask import Flask, render_template, request, flash
 import subprocess
-#from spelling.simplechecker import Dicionario
-#from tokenizer.tokenize import Tokenizer
+from factory import CompaFactory
 
 app = Flask(__name__)
 app.secret_key = 'development key'
 
-di = Dicionario()
-tk = Tokenizer()
+cf = CompaFactory()
 
 @app.route('/')
 def start_server():
@@ -16,8 +14,8 @@ def start_server():
 
 @app.route('/check', methods=['POST'])
 def check():
-  text = tk.run(request.form['Text1'])
-  flash(text)
+  errors_spell, errors_repetition, sintagmas  = cf.execute(request.form['Text1'].lower())
+  flash(errors_spell)
   """
   res = di.check_phrase(request.form['Text1'])
   if not res:
@@ -25,7 +23,7 @@ def check():
   else:
     for r in res:
       flash(f"A Palavra <b>{ r.replace('','  ') }</b> não está no dicionário, você quis dizer <b>{ d.correction(r).replace('','    ') }</b>?")
-  """
+  """ 
   return render_template('index.html')
 
 

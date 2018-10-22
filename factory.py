@@ -23,7 +23,7 @@ class CompaFactory():
     # Extrai os Tokens da Frase
     extracted = self.extractor.extract(word)
     # Faz a Checagem Gramatical e retorna os erros encontrados
-    errors_spelling = self.spellcheck.from_tokenizer(extracted)
+    spelling_errors = self.spellcheck.from_tokenizer(extracted)
     # Atualiza os tokens extraidos com as correções
     extracted = self.spellcheck.autocorrect(extracted)
     # Atualiza os tokens removendo as duplicadas
@@ -31,9 +31,11 @@ class CompaFactory():
 
     # Processa a lista de tokens e adiciona as tags de parte-de-fala
     tagged = self.processor.process(extracted)
-    # PARSING
+    
+    # Parser Sintático
 
-    sintagmas = ReduceParser(tagged).sintagmas
+    semantic_errors = ReduceParser(tagged).get_errors()
 
+    errors = spelling_errors + repetitions + semantic_errors
 
-    return errors_spelling, repetitions, sintagmas
+    return errors

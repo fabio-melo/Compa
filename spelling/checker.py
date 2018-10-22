@@ -2,6 +2,7 @@
 # Carrega as Palavras no Dicionario
 import re, pickle
 from collections import Counter
+from tokenizer.errors import ErrorDetails
 
 class SpellChecker:
 
@@ -76,12 +77,13 @@ class SpellChecker:
       """lê dos tokens e informa dos erros ao usuario"""
       tok = []
       if not self.check(x.symbol):
-        tok.append(x.symbol)
+        #tok.append(x.symbol)
         corrected = self.correction(x.symbol)
         if x.symbol == corrected:
           tok.append(False)
         else:
-          tok.append(self.correction(x.symbol))
+          tok = ErrorDetails('SPELL',x.symbol, self.correction(x.symbol))
+          #tok.append(self.correction(x.symbol))
         bad_words.append(tok)
     return bad_words
 

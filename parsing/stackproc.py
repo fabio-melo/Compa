@@ -15,10 +15,14 @@ class StackProcess:
     for element in stack:
       if element.sintagma == 'NOMINAL':
         errors, element = self.sintagma_nominal(element)
-        if errors: errorlist.append(*errors)
+        if errors: 
+          for error in errors:
+            errorlist.append(error)
       elif element.sintagma == 'VERBAL':
         errors, element = self.sintagma_verbal(element)
-        if errors: errorlist.append(*errors)
+        if errors: 
+          for error in errors:
+            errorlist.append(error)
     return errorlist, stack
 
   def sintagma_nominal(self, sintagma):

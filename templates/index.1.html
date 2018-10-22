@@ -37,26 +37,22 @@ body {
             </div>
           </div>
 
+          {% if texto %}
 
-            {% if colortext %}
+          <div class="card shadow mb-3">
+            <div class="card-body">
+              <div class="d-flex">
 
-            <div class="card shadow mb-3">
-              <div class="card-body">
-                <div class="d-flex">
-  
-                  <div class="flex-grow-1">
-                    <h5><a href="#">Análise Sintática</a></h5>
-                    <p>
-                        <h4 style="line-height: 50px">{{ colortext | safe }}</h4>
-  
-                    </p>
-                  </div>
+                <div class="flex-grow-1">
+                  <h5><a href="#">Texto Verificado</a></h5>
+                  <p>
+                   <h4 class=text-muted> {{ texto }} </h4>
+                  </p>
                 </div>
               </div>
             </div>
-              {% endif %}
-
-
+          </div>
+            {% endif %}
 
             {% if errors %}
 
@@ -96,23 +92,6 @@ body {
         </div>
     <div class="col-md-3 mb-3 order-2">
 
-        {% if texto %}
-
-        <div class="card shadow mb-3">
-          <div class="card-body">
-            <div class="d-flex">
-
-              <div class="flex-grow-1">
-                <h5>Texto Verificado</h5>
-                <p>
-                  {{ texto }} 
-
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-          {% endif %}
 
     {% if reduced %}
 
